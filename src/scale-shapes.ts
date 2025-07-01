@@ -34,3 +34,7 @@ export const ScaleShapes = {
   WHOLE_TONE_HEX: 0b101010101010, // alias of WHOLE_TONE (kept for convenience)
 } as const;
 export type ScaleShape = keyof typeof ScaleShapes;
+
+export const uniqueScaleShapes = Array.from(
+  new Set(Object.values(ScaleShapes))
+);

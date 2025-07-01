@@ -115,3 +115,7 @@ export const ChordShapes = {
   EXP_0_1_5_8: 0b110001001000, // 0-♭9-11-♯5 (spiky, resolves down nicely)
 } as const;
 export type ChordShape = keyof typeof ChordShapes;
+
+export const uniqueChordShapes = Array.from(
+  new Set(Object.values(ChordShapes))
+);
