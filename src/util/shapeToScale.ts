@@ -1,18 +1,9 @@
-import { NoteName, noteNamesByIndex } from "../notes";
-import { ScaleShape, ScaleShapes, uniqueScaleShapes } from "../scale-shapes";
-import { rotate } from "./rotate";
+import { NoteName } from "../notes";
+import { ScaleShape, ScaleShapes } from "../scale-shapes";
+import { getShapeMatches } from "./getShapeMatches";
 
 export function shapeToScale(bitmask: number): [NoteName, ScaleShape][] {
-  const scales: [NoteName, ScaleShape][] = [];
-
-  for (let i = 0; i < 12; i++) {
-    for (const shape in uniqueScaleShapes) {
-      const rotatedShape = rotate(uniqueScaleShapes[shape], i);
-      if ((bitmask & rotatedShape) === rotatedShape) {
-        scales.push([noteNamesByIndex[i][0] as NoteName, shape as ScaleShape]);
-      }
-    }
-  }
-
-  return scales;
+  // Find all scales that are an exact match for the bitmask.
+  const exactMatch = (a: number, b: number) => a === b;
+  return getShapeMatches(bitmask, ScaleShapes, exactMatch);
 }

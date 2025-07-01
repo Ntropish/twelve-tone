@@ -1,6 +1,9 @@
 import { rotate } from "./rotate";
 
-type BitmaskCompare = (sourceMask: number, targetMask: number) => boolean;
+export type BitmaskCompare = (
+  sourceMask: number,
+  targetMask: number
+) => boolean;
 
 /**
  * Checks if targetMask is a subset of sourceMask.
