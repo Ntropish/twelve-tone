@@ -1,15 +1,11 @@
 import { NoteIndex } from "./notes";
-import { ChordShape } from "./chord-shapes";
-import { ScaleShape } from "./scale-shapes";
 
 export interface Scale {
-  shape: ScaleShape;
   root: NoteIndex;
+  bitmask: number;
 }
 
 export interface Chord {
   root: NoteIndex;
-  shape: ChordShape;
+  bitmask: number;
 }
-
-type NoteSet = Set<NoteIndex>;
