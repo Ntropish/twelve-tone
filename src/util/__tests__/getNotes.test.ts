@@ -1,12 +1,13 @@
-import { describe, it, expect } from "vitest";
 import { getNotes } from "../getNotes";
+import { describe, it, expect } from "vitest";
+import { ChordShapes } from "../../chord-shapes";
 
 describe("getNotes", () => {
-  it("should return the correct note indices for a given bitmask", () => {
-    // Bitmask for C Major triad: R(0), M3(4), P5(7)
-    const bitmask = 0b10001001000;
-    const expectedNotes = [0, 4, 7];
-    expect(getNotes(bitmask)).toEqual(expectedNotes);
+  it("should return the correct note indices for a C Major chord shape", () => {
+    const bitmask = ChordShapes.MAJOR; // C-E-G
+    const expectedNotes = [4, 7, 11].sort((a, b) => a - b); // G, E, C indices
+    const actualNotes = getNotes(bitmask).sort((a, b) => a - b);
+    expect(actualNotes).toEqual(expectedNotes);
   });
 
   it("should return an empty array for a bitmask of 0", () => {

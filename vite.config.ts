@@ -10,7 +10,7 @@ export default defineConfig({
       formats: ["es", "cjs"],
     },
     rollupOptions: {
-      external: ["vite", "@typicli/core", "path", "fs", "esbuild"],
+      external: ["vite", "path", "fs", "esbuild"],
     },
     target: "node20",
     minify: false,

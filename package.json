@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -15,6 +16,7 @@
   "license": "ISC",
   "dependencies": {
     "@vitest/ui": "^3.2.4",
+    "lodash-es": "^4.17.21",
     "vite": "^7.0.0",
     "vite-plugin-dts": "^4.5.4",
     "vitest": "^3.2.4"

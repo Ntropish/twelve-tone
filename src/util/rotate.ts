@@ -1,9 +1,9 @@
 export function rotate(bitmask: number, amount: number): number {
-  amount %= 12;
-  if (amount < 0) {
-    amount += 12;
-  }
-  const high = bitmask << amount;
-  const low = bitmask >> (12 - amount);
-  return (high | low) & 0b111111111111;
+  amount = ((amount % 12) + 12) % 12; // Ensure amount is positive and within 0-11
+  
+  // Perform a 12-bit left rotation
+  const rotated = (bitmask << amount) | (bitmask >> (12 - amount));
+  
+  // Mask to 12 bits
+  return rotated & 0b111111111111;
 }
